@@ -20,7 +20,7 @@ hour = range(0, 24)
 # Get the data from a specific year, day and time.
 # year = 2020
 # day_in_year = 189
-
+# hour = 00
 # Use the anonymous credentials to access public data
 fs = s3fs.S3FileSystem(anon=True)
 
@@ -39,7 +39,7 @@ for t in hour:
 
 length = len(files)  # Getting the number of .nc files
 print(length)
-# for i in range(0, length):
-#    fs.get(files[i], files[i].split('/')[-1])  # Writting all those .nc files in the directory of your script
+for i in range(0, length):
+    fs.get(files[i], files[i].split('/')[-1])  # Writting all those .nc files in the directory of your script
 
 print('End')
