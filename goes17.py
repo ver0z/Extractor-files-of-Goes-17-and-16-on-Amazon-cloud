@@ -32,14 +32,18 @@ for t in hour:
     if t < 10:
         files = np.array(fs.ls('noaa-goes17/ABI-L1b-RadC/{0}/{1}/0{2}/'.format(year, day_in_year, t)))
         print(files)
+        length = len(files)  # Getting the number of .nc files
+        print(length)
+            for i in range(0, length):
+                fs.get(files[i], files[i].split('/')[-1])  # Writting all those .nc files in the directory of your script
+                print('End')
 
     else:
         files = np.array(fs.ls('noaa-goes17/ABI-L1b-RadC/{0}/{1}/{2}/'.format(year, day_in_year, t)))
         print(files)
+        length = len(files)  # Getting the number of .nc files
+        print(length)
+            for i in range(0, length):
+                fs.get(files[i], files[i].split('/')[-1])  # Writting all those .nc files in the directory of your script
+                print('End')
 
-length = len(files)  # Getting the number of .nc files
-print(length)
-for i in range(0, length):
-    fs.get(files[i], files[i].split('/')[-1])  # Writting all those .nc files in the directory of your script
-
-print('End')
